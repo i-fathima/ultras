@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop - Ultras</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="icomoon/icomoon.css" />
+    <link rel="stylesheet" type="text/css" media="all"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/vendor.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+        .shop-hero-animated {
+            animation: glow-zoom 10s ease-in-out infinite;
+            box-shadow: 0 22px 45px rgba(0, 0, 0, 0.17);
+            border-radius: 14px;
+            transition: transform .3s ease;
+        }
+
+        @keyframes glow-zoom {
+
+            0%,
+            100% {
+                transform: scale(1);
+                filter: brightness(1);
+            }
+
+            50% {
+                transform: scale(1.035);
+                filter: brightness(1.09);
+            }
+        }
+
+        .product-item {
+            animation: lift 1.2s ease both;
+            opacity: 0;
+            transform: translateY(18px);
+            animation-delay: calc(var(--product-index) * 0.15s);
+            animation-fill-mode: forwards;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            transition: transform .25s ease, box-shadow .25s ease;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .product-item::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.26) 100%);
+            opacity: 0;
+            transition: opacity .25s ease;
+        }
+
+        .product-item:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.24);
+        }
+
+        .product-item:hover::after {
+            opacity: 1;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-info {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .product-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1b1b1b;
+            margin: 0.65rem 0 0.35rem;
+        }
+
+        .item-price {
+            font-size: 1.14rem;
+            font-weight: 700;
+            margin: 0 0 0.6rem;
+            color: #1376b0;
+        }
+
+        .product-cta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .product-tag {
+            background: #eef8ff;
+            color: #0f69a2;
+            border-radius: 10px;
+            padding: 0.25rem 0.65rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .btn-shop {
+            border: 1px solid #1376b0;
+            background: #fff;
+            color: #1376b0;
+            padding: 0.44rem 0.78rem;
+            border-radius: 8px;
+            font-size: 0.80rem;
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        .btn-shop:hover {
+            background: #1376b0;
+            color: #fff;
+        }
+
+        @keyframes lift {
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <header id="header">
+        <div id="header-wrap">
+            <nav class="secondary-nav border-bottom">
+                <div class="container">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-md-4 header-contact">
+                            <p><a href="contact.html">Let's talk! <strong>+91 9876543210</strong></a></p>
+                        </div>
+                        <div class="col-md-4 shipping-purchase text-center">
+                            <p>Free shipping on a purchase value of ₹500</p>
+                        </div>
+                        <div class="col-md-4 col-sm-12 user-items">
+                            <ul class="d-flex justify-content-end list-unstyled">
+                                <li><a href="login.html"><i class="icon icon-user"></i></a></li>
+                                <li><a href="cart.html"><i class="icon icon-shopping-cart"></i></a></li>
+                                <li><a href="wishlist.html"><i class="icon icon-heart"></i></a></li>
+                                <li class="user-items search-item pe-3"><a href="#" class="search-button"><i
+                                            class="icon icon-search"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <nav class="primary-nav padding-small">
+                <div class="container">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-lg-2 col-md-2">
+                            <div class="main-logo">
+                                <a href="index.html"><img src="images/main-logo.png" alt="logo" /></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10">
+                            <div class="navbar">
+                                <div id="main-nav" class="stellarnav d-flex justify-content-end right">
+                                    <ul class="menu-list">
+                                        <li class="menu-item has-sub"><a href="index.html" class="item-anchor">Home</a>
+                                        </li>
+                                        <li><a href="about.html" class="item-anchor">About</a></li>
+                                        <li><a href="shop.html" class="item-anchor active">Shop</a></li>
+                                        <li><a href="contact.html" class="item-anchor">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="padding-large bg-light-grey">
+        <section class="container mb-5">
+            <div class="section-header text-center">
+                <h2 class="section-title">Welcome to the Ultras Shop</h2>
+                <p class="lead">Discover our best-selling collection and a curated catalogue made for modern style and
+                    comfort.</p>
+            </div>
+            <div class="row align-items-center gap-4 mt-4">
+                <div class="col-lg-6">
+                    <p>At Ultras, we deliver premium-quality clothing and accessories with a focus on design,
+                        durability, and responsible sourcing. Our shop offers a range of categories designed for
+                        everyday wear, seasonal highlights, and limited-edition drops. Whether you’re looking for casual
+                        essentials, performance wear, or statement pieces, you’ll find the perfect match.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="icon icon-check text-primary"></i> Comfortable and sustainable fabrics</li>
+                        <li><i class="icon icon-check text-primary"></i> Specially curated for your wardrobe</li>
+                        <li><i class="icon icon-check text-primary"></i> Easy returns and secure checkout</li>
+                        <li><i class="icon icon-check text-primary"></i> Trusted customer service</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://plus.unsplash.com/premium_photo-1664202525979-80d1da46b34b?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Shop Hero" class="img-responsive image-rounded shop-hero-animated" />
+                </div>
+            </div>
+        </section>
+
+        <section class="container mb-5">
+            <div class="section-header text-center">
+                <h3 class="section-title small">Shop by category</h3>
+            </div>
+            <div class="row gap-3">
+                <div class="col-md-4">
+                    <div class="card shadow-sm p-4" style="border-radius: 10px;">
+                        <h4 class="section-title small">T-Shirts</h4>
+                        <p>Essential tees in modern fits, premium cotton, and vivid color options.</p>
+                        <a href="shop.html" class="btn btn-outline-secondary btn-sm">Browse T-Shirts</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm p-4" style="border-radius: 10px;">
+                        <h4 class="section-title small">Outerwear</h4>
+                        <p>Jackets and coats for urban layering and weather-ready performance.</p>
+                        <a href="shop.html" class="btn btn-outline-secondary btn-sm">Browse Outerwear</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm p-4" style="border-radius: 10px;">
+                        <h4 class="section-title small">Shoes</h4>
+                        <p>Comfort-first sneakers and boots engineered for style and durability.</p>
+                        <a href="shop.html" class="btn btn-outline-secondary btn-sm">Browse Shoes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="section-header text-center">
+                <h3 class="section-title small">Featured products</h3>
+            </div>
+            <div class="row gap-3">
+                <div class="col-md-4">
+                    <div class="product-item card p-3" style="border-radius: 10px; --product-index: 0;">
+                        <img src="https://images.unsplash.com/photo-1570857502809-08184874388e?q=80&w=878&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Full sleeve cover shirt" class="img-responsive" />
+                        <h4 class="product-title mt-3">Full Sleeve Cover Shirt</h4>
+                        <p class="item-price text-primary">$40.00</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-item card p-3" style="border-radius: 10px; --product-index: 1;">
+                        <img src="https://images.unsplash.com/photo-1546213290-e1b492ab3eee?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Volunteer Half blue" class="img-responsive" />
+                        <h4 class="product-title mt-3">Volunteer Half Blue</h4>
+                        <p class="item-price text-primary">$38.00</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-item card p-3" style="border-radius: 10px; --product-index: 2;">
+                        <img src="https://plus.unsplash.com/premium_photo-1664202525979-80d1da46b34b?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Double yellow shirt" class="img-responsive" />
+                        <h4 class="product-title mt-3">Double Yellow Shirt</h4>
+                        <p class="item-price text-primary">$44.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
